@@ -1,14 +1,15 @@
 #include "Rectangle.h"
 #include <iostream>
 
-Rectangle::Rectangle() : largeur(0), hauteur(0) {}
+Rectangle::Rectangle() {
+    demander();
+}
 
 void Rectangle::demander() {
     int x, y, l, h;
     std::cout << "Entrez les coordonnées du coin supérieur gauche : ";
     std::cin >> x >> y;
     coin_superieur_gauche.modify(x, y);
-
     std::cout << "Entrez la largeur et la hauteur : ";
     std::cin >> l >> h;
     largeur = l;
@@ -31,7 +32,7 @@ void Rectangle::dessiner(const Canva& c) {
 
     for (int j = 0; j < c.hauteur; j++) {
         for (int i = 0; i < c.largeur; i++) {
-            if (i >= x && i < x + largeur && j >= y && j < y + hauteur) {
+            if ( ( (i == x || i == x + largeur - 1) && (j >= y && j < y + hauteur ) ) || ( (j == y || j == y + hauteur - 1) && (i >= x && i < x + largeur ) ) ) {
                 std::cout << "*";
             }
             else {
@@ -40,4 +41,11 @@ void Rectangle::dessiner(const Canva& c) {
         }
         std::cout << std::endl;
     }
+}
+
+int main() {
+    Canva b(20, 20);
+    Rectangle a;
+    a.dessiner(b);
+    return 0;
 }
