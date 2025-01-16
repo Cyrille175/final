@@ -1,7 +1,8 @@
 #ifndef FORME_H
 #define FORME_H
-
+#include <cmath>
 #include <string>
+#include <vector>
 
 class Forme {
 protected:
