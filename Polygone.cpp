@@ -28,23 +28,28 @@ Polygone::Polygone() {
 }
 
 void Polygone::dessiner(const Canva& c) {
+	int tab[nombre_de_cotes][2];
 	for (int f = 0; f < nombre_de_cotes; f++) {
-		double a = (sommets_du_polygone[f+1].get_ordonnee() - sommets_du_polygone[f].get_ordonnee()) / (sommets_du_polygone[f+1].get_abscisse() - sommets_du_polygone[f].get_abscisse());
-		double b = sommets_du_polygone[f].get_ordonnee() - (a * sommets_du_polygone[f].get_abscisse());
-		for (int j = 0; j < c.hauteur; j++) {
+		tab[f][1] = (sommets_du_polygone[f + 1].get_ordonnee() - sommets_du_polygone[f].get_ordonnee()) / (sommets_du_polygone[f + 1].get_abscisse() - sommets_du_polygone[f].get_abscisse());
+		tab[f][2] = sommets_du_polygone[f].get_ordonnee() - (tab[f][1] * sommets_du_polygone[f].get_abscisse());
+	}
+	
+	for (int j = 0; j < c.hauteur; j++) {
 			for (int i = 0; i < c.largeur; i++) {
-				if (((a * i) + b) == j) {
-					std::cout << "*";
+				for (int a = 0; a < nombre_de_cotes; a++) {
+					if (((tab[a][1] * i) + tab[a][2]) == j) {
+						std::cout << "*";
+						break;
+					}
+					else {
+						std::cout << " ";
+					}
 				}
-				else {
-					std::cout << " ";
-				}
+				
 			}
 			std::cout << std::endl;
 		}
 	}
-
-}
 
 int main() {
 	Canva b(20, 20);
