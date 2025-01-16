@@ -5,6 +5,7 @@
 #include "Canva.h"
 #include <cmath>
 #include <string>
+#include <vector>
 
 class Cercle : public Forme {
 private:
