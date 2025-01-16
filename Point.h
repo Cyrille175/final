@@ -1,17 +1,17 @@
 #ifndef POINT_H
 #define POINT_H
-#include "Canva.h"
-
+#include <string>
 
 class Point {
 private:
-	int _x;
-	int _y;
+    int _x;
+    int _y;
 public:
-	Point(int x, int y);
-	void tracer_point();
-	std::string afficher_point() const ;
-	void modify(int x, int y);
+    Point(int x = 0, int y = 0);
+    void modify(int x, int y);
+    std::string afficher_point() const;
+    int get_abscisse();
+    int get_ordonnee();
 };
 
 #endif
