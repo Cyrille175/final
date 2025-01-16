@@ -18,8 +18,8 @@ std::string Cercle::afficher() const {
     return "Cercle passant par " + p1.afficher_point() + " et de rayon: " + std::to_string(r);
 }
 
-bool Cercle::est_valide(int largeur, int hauteur) const {
-    return true;
+bool Cercle::est_valide(const Canva& c) const {
+    return (p1.get_abscisse + r < c.largeur) && (p1.get_ordonnee + r < c.hauteur);
 }
 
 void Cercle::dessiner_cercle(const Canva& c) {

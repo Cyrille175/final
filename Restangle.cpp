@@ -23,7 +23,8 @@ std::string Rectangle::afficher() const {
 }
 
 bool Rectangle::est_valide(const Canva& c) const {
-    return true;
+
+    return (coin_superieur_gauche.get_abscisse() < c.largeur) && (coin_superieur_gauche.get_ordonnee() < c.hauteur);
 }
 
 void Rectangle::dessiner(const Canva& c) {
