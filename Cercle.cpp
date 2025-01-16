@@ -9,9 +9,10 @@ void Cercle::demander() {
     std::cout << "Entrez l'abscisse puis l'ordonnée du premier point : ";
     std::cin >> x >> y;
     p1.modify(x, y);
-    
+
     std::cout << "Entrez le rayon de votre cercle: ";
     std::cin >> r;
+}
 
 std::string Cercle::afficher() const {
     return "Cercle passant par " + p1.afficher_point() + " et de rayon: " + std::to_string(r);
