@@ -16,7 +16,7 @@ public:
     Rectangle();
     void demander() override;
     std::string afficher() const override;
-    bool est_valide(int largeur, int hauteur) const override;
+    bool est_valide(const Canva& c) const override;
     void dessiner(const Canva& c) ;
 };
 

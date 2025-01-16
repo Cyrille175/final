@@ -19,8 +19,15 @@ std::string Polygone::afficher() const {
 	return info;
 }
 
-bool Polygone::est_valide(int largeur, int longueur) const {
-	return true;
+bool Polygone::est_valide(const Canva& c) const {
+	bool message = true;
+	for (auto& point : sommets_du_polygone) {
+		if (point.get_abscisse() > c.largeur || point.get_ordonnee() > c.hauteur) {
+			message = false; 
+			break;
+		}
+	}
+	return message;
 }
 
 Polygone::Polygone() {

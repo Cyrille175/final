@@ -19,7 +19,7 @@ std::string Droite::afficher() const {
     return "Droite passant par " + p1.afficher_point() + " et " + p2.afficher_point();
 }
 
-bool Droite::est_valide(int largeur, int hauteur) const {
+bool Droite::est_valide(const Canva& c) const {
     return true;  
 }
 

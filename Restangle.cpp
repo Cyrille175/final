@@ -22,7 +22,7 @@ std::string Rectangle::afficher() const {
         " et hauteur " + std::to_string(hauteur);
 }
 
-bool Rectangle::est_valide(int largeur, int hauteur) const {
+bool Rectangle::est_valide(const Canva& c) const {
     return true;
 }
 

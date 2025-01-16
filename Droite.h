@@ -15,7 +15,7 @@ public:
     void dessiner_droite(const Canva& c);
     void demander() override;
     std::string afficher() const override;
-    bool est_valide(int largeur, int hauteur) const override;
+    bool est_valide(const Canva& c) const override;
 };
 
 #endif

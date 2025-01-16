@@ -3,6 +3,7 @@
 #include <cmath>
 #include <string>
 #include <vector>
+#include "Canva.h"
 
 class Forme {
 protected:
@@ -12,7 +13,7 @@ protected:
 public:
     virtual void demander() = 0;
     virtual std::string afficher() const = 0;
-    virtual bool est_valide(int largeur, int hauteur) const = 0;
+    virtual bool est_valide(const Canva& c) const = 0;
 
     friend std::ostream& operator<<(std::ostream& os, const Forme& f) {
         os << f.afficher();
