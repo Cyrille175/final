@@ -13,10 +13,10 @@ std::string Point::afficher_point() const {
     return "(" + std::to_string(_x) + "," + std::to_string(_y) + ")";
 }
 
-int Point::get_abscisse() {
+int Point::get_abscisse() const {
     return _x;
 }
 
-int Point::get_ordonnee() {
+int Point::get_ordonnee() const  {
     return _y;
 }

@@ -1,10 +1,10 @@
-#include "Cercle.h"
+#include "Droite.h"
 
-Cercle::Cercle() {
+Droite::Droite() {
     demander();
 }
 
-void Cercle::demander() {
+void Droite::demander() {
     int x, y, xx, yy;
     std::cout << "Entrez l'abscisse puis l'ordonnée du premier point : ";
     std::cin >> x >> y;
@@ -15,15 +15,15 @@ void Cercle::demander() {
     p2.modify(xx, yy);
 }
 
-std::string Cercle::afficher() const {
-    return "Cercle passant par " + p1.afficher_point() + " et " + p2.afficher_point();
+std::string Droite::afficher() const {
+    return "Droite passant par " + p1.afficher_point() + " et " + p2.afficher_point();
 }
 
-bool Cercle::est_valide(int largeur, int hauteur) const {
+bool Droite::est_valide(int largeur, int hauteur) const {
     return true;  
 }
 
-void Cercle::dessiner_droite(const Canva& c) {
+void Droite::dessiner_droite(const Canva& c) {
     int x1 = p1.get_abscisse(), y1 = p1.get_ordonnee();
     int x2 = p2.get_abscisse(), y2 = p2.get_ordonnee();
 
@@ -45,7 +45,7 @@ void Cercle::dessiner_droite(const Canva& c) {
         double b = y1 - (a * x1);
         for (int j = 0; j < c.hauteur; j++) {
             for (int i = 0; i < c.largeur; i++) {
-                if (std::round((a * i) + b) == j) {
+                if (((a * i) + b) == j) {
                     std::cout << "*";
                 }
                 else {
@@ -59,7 +59,7 @@ void Cercle::dessiner_droite(const Canva& c) {
 
 int main() {
     Canva b(20, 20);
-    Cercle a;
+    Droite a;
     a.dessiner_droite(b);
     return 0;
 }
