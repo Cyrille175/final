@@ -33,7 +33,7 @@ void Rectangle::dessiner(const Canva& c) {
 
     for (int j = 0; j < c.hauteur; j++) {
         for (int i = 0; i < c.largeur; i++) {
-            if (i = x && i < x + largeur && j = y && j < y + hauteur) {
+            if (i >= x && i < x + largeur && j >= y && j < y + hauteur) {
                 std::cout << "*";
             }
             else {
